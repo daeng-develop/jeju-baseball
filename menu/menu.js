@@ -50,7 +50,7 @@ async function draw_menu_tree() {
         <button class="sidebar-btn" id="sidebar-open">☰</button>
 
         <a href="${pathPrefix}index.html" class="home-btn-link" style="text-decoration: none;">
-            <div class="home-btn">청운대학교</div>
+            <div class="home-btn">제주고</div>
         </a>
 
         <ul class="top-menu-tree">
