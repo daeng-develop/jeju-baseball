@@ -1,0 +1,248 @@
+/**************** 기본적인 UI 설정 ****************/
+.player-container {
+    width: 95%; /* 여백을 줄여서 화면을 넓게 씀 */
+    max-width: 1400px; /* 5열 배치를 위해 최대 너비 확장 */
+    margin: 0 auto;
+    padding: 40px 10px; /* 좌우 패딩 축소 */
+}
+
+/**************** 년도 및 포지션 전시 ****************/
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--bg-light-gray);
+    padding-bottom: 15px;
+}
+
+/* 타이틀 디자인 */
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1.5px;
+    margin: 0;
+}
+
+/* 타이틀 하단 포인트 바 */
+.page-title::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 5px;
+    background-color: var(--main-clr); 
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+/* 강조 텍스트 색상 */
+#display-year, #display-position {
+    color:var(--main-clr);
+}
+
+/* --- 포지션 필터 컨트롤러 영역 --- */
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* 포지션 버튼 그룹 */
+.position-selector {
+    display: flex;
+    background-color: var(--main-clr-light);
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.position-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: var(--main-clr-bright);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 활성화된 포지션 버튼 */
+.position-btn.active {
+    background-color: var(--bg-white);
+    color: var(--main-clr); 
+    font-weight: 720;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.position-btn:hover:not(.active) {
+    color: var(--point-clr); 
+}
+
+/* --- 연도 선택 셀렉트 박스 --- */
+#year-select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+    appearance: none;         
+
+    padding: 10px 40px 10px 16px; 
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark-gray);
+    background-color: var(--bg-light-gray);
+    border: 1px solid var(--bg-gray);
+    border-radius: 10px;
+    cursor: pointer;
+    
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230056b3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center; 
+    background-size: 14px;
+    
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+
+    -webkit-appearance: none; 
+    border-radius: 10px;      
+    background-color: var(--bg-light-gray);
+    
+    line-height: normal;
+    display: block;
+}
+
+#year-select:hover {
+    border-color: var(--main-clr);
+}
+
+#year-select:focus {
+    outline: none;
+    border-color:  var(--main-clr);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1); 
+}
+
+/**************** 선수 카드 그리드 영역 ****************/
+.player-grid {
+    display: grid;   
+    /* ⭐ [핵심 수정] 한 줄에 5개 배치 */
+    grid-template-columns: repeat(5, 1fr);   
+    gap: 15px; /* 간격을 25px -> 15px로 좁힘 */
+    margin-top: 20px;
+}
+
+/* 선수 카드 컨테이너 수정 */
+.player-card {
+    background: var(--bg-white);
+    border-radius: 8px; /* 둥글기 살짝 줄임 */
+    overflow: hidden; 
+    text-align: center;
+    border: 1px solid var(--bg-light-gray);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+/* 이미지 박스 */
+.player-image-box {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* 비율 4:5 -> 3:4로 변경 (조금 더 증명사진 느낌) */
+    background-color:var(--bg-light-gray);
+    overflow: hidden;
+}
+
+.player-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top; /* 얼굴 위주로 보이게 */
+}
+
+/* 카드 하단 텍스트 영역 (콤팩트하게 수정) */
+.player-details {
+    padding: 10px 5px; /* 패딩 축소 */
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* 줄 간격 좁힘 */
+}
+
+/* 1. 등번호 */
+.player-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--main-clr);
+    margin-bottom: 2px;
+}
+
+/* 2. 이름 */
+.player-name {
+    font-size: 1.1rem; /* 이름 크기 살짝 줄임 */
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+/* 3. 정보 텍스트 공통 스타일 (생년월일, 신체조건) */
+.player-info-row {
+    font-size: 0.8rem;
+    color: var(--text-dark-gray);
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+/* 구분선 (|) 스타일 */
+.divider {
+    color: var(--text-dark-gray);
+    margin: 0 4px;
+    font-size: 0.7rem;
+    vertical-align: middle;
+}
+
+/* 4. 출신학교 */
+.player-school {
+    font-size: 0.75rem; /* 제일 작게 */
+    font-weight: 400;
+    color: var(--text-gray);
+    margin-top: 6px; /* 위 정보들과 살짝 띄움 */
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 선수가 존재하지 않을때 */
+.no-data {
+    grid-column: 1 / -1; 
+    text-align: center;
+    padding: 50px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/**************** 반응형 설정 (화면이 작아질 때) ****************/
+/* 노트북/태블릿 가로 (화면이 조금 좁을 때) -> 4개 */
+@media (max-width: 1200px) {
+    .player-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 태블릿 세로 -> 3개 */
+@media (max-width: 900px) {
+    .player-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 모바일 -> 2개 (기존 유지) */
+@media (max-width: 600px) {
+    .player-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .player-name { font-size: 1rem; }
+    .player-info-row { font-size: 0.75rem; }
+}

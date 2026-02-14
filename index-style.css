@@ -1,0 +1,595 @@
+/* index-style.css */
+
+/* 메인 컨텐츠 전체 레이아웃 */
+.main-content {
+    width: 100%;
+    margin-top: 0;
+
+    padding-bottom: 20px;
+}
+
+/* --- 메인 배너 영역 --- */
+.main-banner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+
+    /* ⭐ [PC 설정] 웹에서는 3:1 비율 */
+    aspect-ratio: 3 / 1; 
+    
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--main-clr);
+    border-radius: 0;
+}
+
+/* 배너 이미지 */
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+    opacity: 0; 
+    transition: transform 0.5s ease, opacity 0.5s ease-in-out;
+}
+
+/* (선택) 호버 시 이미지 확대 효과 */
+.main-banner:hover .banner-img {
+    transform: scale(1.03);
+}
+
+/* 배너 위 텍스트 디자인 */
+.banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /* 글씨 배경 그라데이션을 조금 더 높게 */
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 40px 20px 40px;  /* 순서: 위 - 오른쪽 - 아래 - 왼쪽 */
+    box-sizing: border-box;
+}
+
+.banner-title {
+    color: var(--text-white);
+    font-size: 2.2rem; /* 사이즈 살짝 조정 */
+    font-weight: 900;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.banner-subtitle {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+
+/* --- 모바일 반응형 --- */
+@media (max-width: 768px) {
+    .main-banner {
+        /* ⭐ [모바일 설정] 모바일에서는 3:2 비율로 변경 */
+        aspect-ratio: 3 / 2; 
+        margin-top: 0;
+    }
+
+    /* 배너가 세로로 더 길어지므로 폰트 사이즈를 조금 더 키워도 좋습니다. */
+    .banner-title {
+        font-size: 1.0rem; 
+    }
+    
+    .banner-subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .banner-overlay {
+        padding: 20px;
+        height: 50%; /* 그라데이션 높이 조정 */
+    }
+}
+
+/* =========================================
+   2. 공통 섹션 스타일
+   ========================================= */
+.content-section, .dashboard-section {
+    padding: 40px 20px 0;
+}
+
+.section-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--main-clr-dark); /* 변수 사용 */
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 5px solid var(--main-clr); /* 변수 사용 */
+}
+
+/* =========================================
+   3. 최근 경기 사진 (5장 그리드)
+   ========================================= */
+.photo-section {
+    padding: 40px 20px 20px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/* [PC 화면] 5개 균등 배치 */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    width: 100%;
+}
+
+/* [모바일 화면] 가로 스크롤 */
+@media (max-width: 768px) {
+    .photo-grid {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        gap: 12px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .photo-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .photo-card {
+        min-width: 140px; 
+        width: 140px;
+        flex-shrink: 0;
+    }
+    .info-title { font-size: 0.85rem !important; }
+    .info-date, .info-loc { font-size: 0.75rem !important; }
+}
+
+/* --- [카드 공통 스타일] --- */
+.photo-card {
+    background: var(--bg-white);
+    /* 둥근 모서리와 넘침 숨김 (필수) */
+    border-radius: 12px; 
+    overflow: hidden; 
+    
+    /* 그림자 효과 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-light);
+    
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* --- [이미지 영역 (격자 무늬)] --- */
+.img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    
+    /* 2x2 그리드 설정 */
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;    
+    
+    /* ⭐ [수정] gap 방식 대신 오버레이 방식을 쓰므로 gap은 0으로 설정 */
+    gap: 0; 
+    background: var(--bg-white);
+    
+    border-bottom: 1px solid var(--border-light);
+    position: relative; /* 십자선 배치를 위한 기준점 */
+}
+
+/* ⭐ [추가] 가로 선 강제 그리기 (사진 위에 뜸) */
+.img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px; /* 선 두께 */
+    background-color: var(--bg-white); /* 선 색상 (흰색) */
+    z-index: 2; /* 사진보다 위에 오도록 설정 */
+    transform: translateY(-50%); /* 정확히 중앙 정렬 */
+    pointer-events: none; /* 클릭 방해 안 함 */
+}
+
+/* ⭐ [추가] 세로 선 강제 그리기 (사진 위에 뜸) */
+.img-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px; /* 선 두께 */
+    height: 100%;
+    background-color: var(--bg-white); /* 선 색상 (흰색) */
+    z-index: 2; /* 사진보다 위에 오도록 설정 */
+    transform: translateX(-50%); /* 정확히 중앙 정렬 */
+    pointer-events: none;
+}
+
+/* 격자 안의 이미지들 */
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* 이미지가 선을 덮지 않도록 z-index 기본값 유지 */
+}
+
+/* 사진 없을 때 빈 공간 */
+.empty-photo {
+    background-color: var(--bg-gray);
+    width: 100%;
+    height: 100%;
+}
+
+/* 뱃지 (선보다 더 위에 떠야 함) */
+.type-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--text-white);
+    font-weight: bold;
+    z-index: 10; /* 십자선(z-index:2)보다 높게 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.type-badge.match { background-color: var(--main-clr); }
+.type-badge.event { background-color: var(--point-clr); }
+
+
+/* --- [텍스트 정보 영역] --- */
+.card-info {
+    padding: 6px 4px;
+    text-align: center;
+    background: var(--bg-white);
+    flex-grow: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2px;
+    
+    min-height: 70px; 
+    z-index: 10;
+}
+
+
+.info-date {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: 500;
+    margin-top: 2px;
+}
+.info-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark-gray);
+    line-height: 1.2;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.info-loc {
+    font-size: 0.8rem;
+    color: var(--text-light-gray);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* =========================================
+   4. 하단 대시보드 (일정 / 기록)
+   ========================================= */
+.dashboard-section {
+    display: flex;
+    gap: 24px;
+    padding: 20px 20px 80px 20px; /* 아래쪽 여유 공간 확보 */
+    align-items: stretch; /* ⭐ 중요: 자식 요소들의 높이를 동일하게 맞춤 */
+}
+
+/* 각 대시보드 박스 (일정, 최근경기) */
+.dashboard-box {
+    flex: 1;
+    background: var(--bg-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    height: 450px; /* ⭐ 높이를 고정하여 두 박스의 사이즈를 일치시킴 */
+}
+
+/* 모바일 세로 배치 */
+@media (max-width: 768px) {
+    .dashboard-section {
+        flex-direction: column;
+    }
+
+    .dashboard-box {
+        height: 400px; /* 모바일에서는 높이를 살짝 조절 가능 */
+    }
+}
+
+.dashboard-card {
+    flex: 1; /* 1:1 분할 */
+    background: var(--bg-white);
+    border: 1px solid var(--bg-light-gray);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 카드 헤더 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--main-clr);
+}
+
+.more-link {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.more-link:hover { color: var(--main-clr); }
+
+
+/* [좌측] 일정 리스트 스타일 */
+.schedule-timeline {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sch-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+/* 오늘 날짜 강조 */
+.sch-row.today {
+    background-color: var(--main-clr-bright);
+    border-left: 4px solid var(--main-clr);
+}
+
+.sch-date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+    margin-right: 15px;
+    color: var(--text-gray);
+    font-weight: 700;
+}
+
+.sch-label { font-size: 1.5rem; margin-bottom: 2px; }
+.sch-badge {
+    font-size: 0.9rem;
+    background: var(--point-clr); /* 포인트 컬러 */
+    color: var(--text-white);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 일정 정보 컨테이너 */
+.sch-info {
+    display: flex;
+    flex-direction: column; /* ⭐ 위아래로 쌓이게 설정 */
+    justify-content: center;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+/* ⭐ [추가] 1번째 줄: 상대팀/제목 */
+.sch-title {
+    font-weight: 700;       /* 굵게 */
+    color: var(--text-dark-gray);
+    margin-bottom: 2px;     /* 장소와의 간격 */
+    line-height: 1.2;
+}
+
+/* ⭐ [추가] 2번째 줄: 장소 */
+.sch-location {
+    font-size: 1.0rem;      /* 제목보다 작게 */
+    color: var(--text-gray);
+    font-weight: 400;
+}
+.sch-sub {
+    font-size: 0.6rem;
+    color: var(--text-gray);
+    margin-left: 5px;
+}
+
+
+/* =========================================
+   [우측] 경기 기록 리스트 스타일 (새로 추가)
+   ========================================= */
+.match-list-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto; /* 내용이 많으면 스크롤 */
+}
+
+.match-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-bottom: 1px solid  var(--bg-light-gray);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.match-list-item:last-child {
+    border-bottom: none;
+}
+
+.match-list-item:hover {
+    background-color:  var(--bg-light-gray);
+}
+
+/* 1. 날짜 및 장소 */
+.match-date-loc {
+    display: flex;
+    flex-direction: column;
+    width: 110px;        /* PC에서는 넉넉하게 */
+    font-size: 1.0rem;
+    color: var(--text-gray);
+    text-align: left;
+    padding-left: 5px;
+    flex-shrink: 0;      /* 영역 고정 */
+}
+
+/* 날짜 텍스트 */
+.m-date { 
+    font-weight: 600; 
+    color: var(--text-dark-gray);
+    margin-bottom: 2px; 
+}
+
+/* 장소 텍스트 (PC: 한 줄 말줄임) */
+.m-loc { 
+    font-size: 0.8rem; 
+    color: var(--text-gray);
+    width: 100%;
+    
+    white-space: nowrap;      /* PC는 한 줄 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* 중앙 경기 정보 */
+.match-info-center {
+    flex: 1;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0; /* 텍스트 넘침 방지 */
+}
+.m-title {
+    font-size: 0.9rem;
+    color: var(--main-clr);
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+.m-vs,
+.m-time {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* 3. 결과 뱃지 (상태별 색상) */
+/* 공통 뱃지 스타일 보완 */
+.match-result-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--bg-white);
+    min-width: 50px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 약간의 입체감 */
+}
+
+/* 상태별 색상 정의 */
+.status-win { background-color: var(--main-clr); }
+.status-loss { background-color: var(--bg-red); }
+.status-draw { background-color:  var(--point-clr);}
+.status-no-record { background-color: var(--main-clr-light); }
+.status-rain { background-color:  var(--bg-blue);} 
+.status-suspend { background-color: var(--bg-yellow);}
+.status-cancel { background-color: var(--bg-gray); }
+.status-end { background-color: var(--bg-dark-gray); }
+
+/* 경기 기록 리스트 내부의 '데이터 없음' 박스 최적화 */
+.match-list-container .no-data {
+    flex: 1; /* 남은 공간을 꽉 채움 */
+    display: flex;
+    align-items: center;     /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    padding: 0;              /* 넘침을 유발하는 패딩 제거 */
+    background: transparent; /* 배경 투명 (필요시) */
+    height: 100%;            /* 높이 100% */
+}
+
+@media (max-width: 768px) {
+    /* 날짜/장소 박스 너비 축소 -> 상대팀 영역 확보 */
+    .match-date-loc {
+        width: 55px;  /* ⭐ 110px -> 72px로 확 줄임 */
+    }
+
+    /* 폰트 사이즈도 살짝 줄여서 좁은 폭에 맞춤 */
+    .m-date {
+        font-size: 0.75rem; 
+    }
+    
+    /* 장소: 좁아진 대신 두 줄 허용 */
+    .m-loc { 
+        font-size: 0.65rem; /* 글씨 작게 */
+        white-space: normal; /* 줄바꿈 허용 */
+        word-break: break-all; /* 단어 끊기 허용 */
+        line-height: 1.2;
+        
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 두 줄 제한 */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* ⭐ [추가] 경기 결과 뱃지 축소 */
+    .match-result-badge {
+        padding: 2px 6px;      /* 패딩을 줄여서 박스 크기 축소 */
+        font-size: 0.7rem;     /* 글자 크기 축소 */
+        min-width: 36px;       /* 최소 너비도 50px -> 36px로 축소 */
+        border-radius: 8px;    /* 둥글기 살짝 조정 */
+        margin-left: 5px;      /* 왼쪽 여백 살짝 */
+    }
+
+    /* (선택) 경기 제목과 상대팀 글씨도 살짝 조절하여 밸런스 맞춤 */
+    .m-title { font-size: 0.7rem; margin-bottom: 2px; }
+    .m-vs { font-size: 0.85rem; }
+}

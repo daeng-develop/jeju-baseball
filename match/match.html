@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경기 기록 상세</title>
+
+    <link rel="stylesheet" href="../menu/menu-style.css">
+    <link rel="stylesheet" href="../common-style.css">
+    <link rel="stylesheet" href="match-style.css">
+</head>
+
+<body>
+    <main class="main-content">
+
+        <div class="match-detail-container">
+
+            <header class="match-header">
+                <span class="match-status">로딩중...</span>
+                <h1 class="tournament-title">대회 정보 로딩중...</h1>
+                <p class="match-meta">-</p>
+            </header>
+
+            <section class="scoreboard-main">
+                <div class="team-box away">
+                    <span class="team-badge away-badge">AWAY</span>
+                    <h2 class="team-name">-</h2>
+                </div>
+
+                <div class="score-center">
+                    <div class="match-result-label" style="display: none;">-</div>
+                    
+                    <div class="score-display">
+                        <span class="score away-score">0</span>
+                        <span class="score-divider">:</span>
+                        <span class="score home-score">0</span>
+                    </div>
+                </div>
+
+                <div class="team-box home">
+                    <span class="team-badge home-badge">HOME</span>
+                    <h2 class="team-name">-</h2>
+                </div>
+            </section>
+
+            <div class="scoreboard-table-wrapper">
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th class="team-col">TEAM</th>
+                            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th>
+                            <th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th>
+                            <th class="stat-header r-col">R</th>
+                            <th class="stat-header h-col">H</th>
+                            <th class="stat-header e-col">E</th>
+                            <th class="stat-header b-col">B</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="team-name-cell">-</td>
+                            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                            <td class="stat-cell r-cell">0</td>
+                            <td class="stat-cell h-cell">0</td>
+                            <td class="stat-cell e-cell">0</td>
+                            <td class="stat-cell b-cell">0</td> 
+                        </tr>
+                        <tr>
+                            <td class="team-name-cell">-</td>
+                            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                            <td class="stat-cell r-cell">0</td>
+                            <td class="stat-cell h-cell">0</td>
+                            <td class="stat-cell e-cell">0</td>
+                            <td class="stat-cell b-cell">0</td> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="match-key-stats" style="display: none;"></div>
+
+            <section class="lineups-container">
+                <div class="lineup-column left-col">
+                    <div id="start-line-up" class="lineup-box">
+                        <h3 class="lineup-title">스타팅 라인업</h3>
+                        <table class="lineup-table">
+                            <thead>
+                                <tr>
+                                    <th class="no-col">No</th>
+                                    <th class="name-col">이름</th>
+                                    <th class="pos-col">포지션</th>
+                                    <th class="type-col">투타</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="lineup-column right-col">
+                    <div id="pitcher-line-up" class="lineup-box">
+                        <h3 class="lineup-title">투수 라인업</h3>
+                        <table class="lineup-table">
+                            <thead>
+                                <tr>
+                                    <th class="no-col">순서</th>
+                                    <th class="name-col">이름</th>
+                                    <th class="inn-col">이닝</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div id="bench-line-up" class="lineup-box">
+                        <h3 class="lineup-title">교체 명단</h3>
+                        <table class="lineup-table">
+                            <thead>
+                                <tr>
+                                    <th class="inn-col">이닝</th>
+                                    <th class="name-col">이름</th>
+                                    <th class="change-type-col">사유</th>
+                                    <th class="change-out-col">OUT</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="match-photos-container" style="display: none;">
+                <h3 class="section-title">경기 사진</h3>
+                <div class="photo-gallery"></div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="../menu/menu.js"></script>
+    <script type="module" src="match.js"></script>
+</body>
+</html>
