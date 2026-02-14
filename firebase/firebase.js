@@ -11,11 +11,13 @@ const firebase = window.firebase;
 
 // 3. 설정 값 (그대로 유지)
 const firebaseConfig = {
-    apiKey: "AIzaSyBaSjDWV0MtsQ-ql9XuMQg8lRBVMuPObPU",
-    authDomain: "cwu-baseball.firebaseapp.com",
-    projectId: "cwu-baseball",
-    storageBucket: "cwu-baseball.firebasestorage.app",
-    appId: "1:492761605175:web:3e4a4debd2d367990ccbb2"
+    apiKey: "AIzaSyAT54b1YO8APrWy5_wCpxqbg03nQeE41Gk",
+    authDomain: "jeju-baseball.firebaseapp.com",
+    projectId: "jeju-baseball",
+    storageBucket: "jeju-baseball.firebasestorage.app",
+    messagingSenderId: "100505081882",
+    appId: "1:100505081882:web:39c3e176078cbce1d619a3",
+    measurementId: "G-DYG2GXNBL3"
 };
 
 // 4. 초기화 (이미 되어있으면 건너뜀)
