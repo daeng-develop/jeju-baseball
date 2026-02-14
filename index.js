@@ -23,7 +23,7 @@ function loadMainBanner() {
     
     // ⭐ [수정] Storage 호출 대신 로컬 경로 설정
     // 이미지 파일이 프로젝트 루트의 image 폴더 안에 있어야 합니다.
-    const fileName = isMobile ? 'main-banner-mob.png' : 'main-banner-web.png';
+    const fileName = isMobile ? 'main-banner-mob.jpg' : 'main-banner-web.jpg';
     const localPath = `image/${fileName}`;
 
     const bannerImg = document.querySelector('.banner-img');
