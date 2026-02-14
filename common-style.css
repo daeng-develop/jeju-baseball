@@ -13,15 +13,15 @@
 
     --main-font: 'OmuDaye', sans-serif;
 
-    /* [메인] 청운대 블루 (사이드바, 푸터 배경) */
-    --main-clr: #004ea2; 
-    --main-clr-dark: #003264;
-    --main-clr-light: #4c8cdb;   /* 부드러운 하이라이트 */
-    --main-clr-bright: #eef6fd;  /* 아주 연한 배경색 (포커스용) */
+    /* [메인] 제주고 주황색 */
+    --main-clr: #FF7A29;
+    --main-clr-dark: #C2530A;
+    --main-clr-light: #FFD8C2;   /* 부드러운 하이라이트 */
+    --main-clr-bright: #FFA675;  /* 아주 연한 배경색 (포커스용) */
     
-    /* [포인트] 청운대 그린 (버튼, 호버 강조, 포인트) */
-    --point-clr: #00a73c;
-    --point-clr-light: #f0fff4;
+    /* [포인트] 제주고 학교 로고 보라색 */
+    --point-clr: #6d2a5e;
+    --point-clr-light: #F3EBF1;
 
     /* 배경색*/
     --bg-white: #ffffff;
