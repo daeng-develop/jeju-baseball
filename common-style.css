@@ -1,17 +1,16 @@
-/* 1. 폰트 불러오기 */
+/* 폰트 불러오기 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
 @font-face {
-    font-family: 'OmuDaye';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-family: 'NationalParkKomi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KNPSKkomi-Regular00.woff') format('woff');
     font-weight: normal;
     font-display: swap;
 }
 
-/* 변수 정의 */
 :root {
 
-    --main-font: 'OmuDaye', sans-serif;
+    --main-font: 'NationalParkKomi', sans-serif;
 
     /* [메인] 제주고 주황색 */
     --main-clr: #FF7A29;
