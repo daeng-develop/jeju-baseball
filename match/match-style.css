@@ -73,10 +73,10 @@
     letter-spacing: 1px;
 }
 
-/* ⭐ HOME: 청운대 블루 */
+/* ⭐ HOME: 제주고 블루 */
 .home-badge { 
     background-color: var(--main-clr-bright); 
-    color: var(--main-clr-dark); /* 짙은 청운대 블루 */
+    color: var(--main-clr-dark); /* 짙은 제주고 블루 */
     border: 1px solid var(--main-clr-light); 
 }
 
@@ -192,13 +192,13 @@
 /* 통계 칸 (R, H, E, B) */
 .stat-header, .stat-cell { width: 45px; font-weight: bold; }
 
-/* R, H: 파란색 계열 */
+/* R, H: 주황색 계열 */
 .r-col, .r-cell, .h-col, .h-cell {
     background-color: var(--main-clr-bright) !important;
     color: var(--main-clr) !important;
 }
 thead .r-col, thead .h-col { 
-    background-color: var(--main-clr-light) !important; 
+    background-color: var(--main-clr) !important; 
     color: var(--main-clr-bright) !important;
 }
 

@@ -202,9 +202,9 @@ async function handleMatchSelect(e) {
 
         if (data.homeAway === 'home') {
             if (nameAwayEl) nameAwayEl.textContent = shortOpponent; 
-            if (nameHomeEl) nameHomeEl.textContent = "청운대";      
+            if (nameHomeEl) nameHomeEl.textContent = "제주고";      
         } else {
-            if (nameAwayEl) nameAwayEl.textContent = "청운대";      
+            if (nameAwayEl) nameAwayEl.textContent = "제주고";      
             if (nameHomeEl) nameHomeEl.textContent = shortOpponent; 
         }
 
@@ -592,8 +592,8 @@ if (!selectedMatchId) return;
             const homeRun = Number(document.getElementById(`row-home`).querySelector('.r-val').value || 0);
             const awayRun = Number(document.getElementById(`row-away`).querySelector('.r-val').value || 0);
 
-            let ourScore = (nameHome === '청운대') ? homeRun : awayRun;
-            let oppScore = (nameHome === '청운대') ? awayRun : homeRun;
+            let ourScore = (nameHome === '제주고') ? homeRun : awayRun;
+            let oppScore = (nameHome === '제주고') ? awayRun : homeRun;
 
             if (status === 'win' && ourScore <= oppScore) throw new Error("승리인데 점수가 낮거나 같습니다.");
             if (status === 'loss' && ourScore >= oppScore) throw new Error("패배인데 점수가 높거나 같습니다.");

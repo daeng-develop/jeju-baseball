@@ -69,14 +69,14 @@ function renderMatchUI(data) {
             r: data['away-run'], h: data['away-hit'], e: data['away-error'], b: data['away-ball']
         };
         btmTeam = { 
-            name: "청운대학교", 
+            name: "제주고등학교", 
             runs: data['home-score'] || [], 
             r: data['home-run'], h: data['home-hit'], e: data['home-error'] , b: data['home-ball']
         };
     } else {
         // 우리가 어웨이 (초공격)
         topTeam = { 
-            name: "청운대학교", 
+            name: "제주고등학교", 
             runs: data['away-score'] || [], 
             r: data['away-run'], h: data['away-hit'], e: data['away-error'] , b: data['away-ball']
         };
