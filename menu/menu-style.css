@@ -519,7 +519,7 @@ a.sidebar-category-level1 {
 .copyright {
     margin: 0;
     font-size: 0.7rem;
-    color: var(--text-light-gray);
+    color: var(--text-white);
     font-weight: 300;
     letter-spacing: 0.5px;
 }

@@ -171,7 +171,7 @@ async function draw_footer() {
       <footer class="main-footer">
         <div class="footer-content">
             <p class="copyright">Copyright © 2026 daeng. All rights reserved.</p>
-            <button class="admin-link-btn" onclick="location.href='${pathPrefix}admin/login.html'">⚙️</button>
+            <button class="admin-link-btn" onclick="location.href='${pathPrefix}admin/login.html'">관리자</button>
         </div>
       </footer>
     `;
