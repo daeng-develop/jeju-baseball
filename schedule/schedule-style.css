@@ -124,7 +124,7 @@
 
 /* --- ⭐ [핵심 수정] 경기가 있는 날 스타일 --- */
 .calendar-cell.has-match {
-    background-color: var(--main-clr-bright);
+    background-color: var(--point-clr-light);
 }
 
 /* 경기가 있는 날 호버 시 조금 더 진하게 */
