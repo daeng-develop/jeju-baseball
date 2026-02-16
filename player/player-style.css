@@ -200,14 +200,6 @@
     vertical-align: middle;
 }
 
-/* 4. 출신학교 */
-.player-school {
-    font-size: 0.75rem; /* 제일 작게 */
-    font-weight: 400;
-    color: var(--text-gray);
-    margin-top: 6px; /* 위 정보들과 살짝 띄움 */
-}
-
 .player-card:hover {
     transform: translateY(-5px);
 }

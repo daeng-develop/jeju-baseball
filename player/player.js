@@ -117,8 +117,6 @@ async function update_page() {
                 <div class="player-info-row">
                     ${player.height}cm, ${player.weight}kg <span class="divider">|</span> ${playerType}
                 </div>
-
-                <div class="player-school">${player.school}</div>
             </div>
         </div>
         `;

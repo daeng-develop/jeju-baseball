@@ -74,7 +74,6 @@ async function register_member() {
     const height = document.getElementById('height').value.trim();
     const weight = document.getElementById('weight').value.trim();
     const type = document.getElementById('type').value;
-    const school = document.getElementById('school').value.trim();
     const fileInput = document.getElementById('photo');
 
     // 2. 필수 항목 유효성 검사 (이름, 배번, 학년, 포지션)
@@ -134,7 +133,6 @@ async function register_member() {
             height: height ? Number(height) : "", // 없으면 빈 값
             weight: weight ? Number(weight) : "", // 없으면 빈 값
             type: type || "미지정",
-            school: school || "",     // 없으면 빈 값
             photo: downloadURL,       // 사진 없으면 ""
             updatedAt: new Date()
         };
@@ -254,7 +252,6 @@ function renderTable(players) {
         const p_height = player.height || "";
         const p_weight = player.weight || "";
         const p_type = player.type || "미지정";
-        const p_school = player.school || "";
         const p_photo = player.photo || "";
 
         return `
@@ -267,7 +264,7 @@ function renderTable(players) {
             <td>${p_height ? p_height + 'cm' : '-'} / ${p_weight ? p_weight + 'kg' : '-'}</td>
             <td>
                 <button class="btn-list edit" 
-                    onclick="startEditMode('${p_name}', '${p_number}', '${p_grade}', '${p_pos}', '${p_birth}', '${p_height}', '${p_weight}', '${p_type}', '${p_school}', '${p_photo}')">
+                    onclick="startEditMode('${p_name}', '${p_number}', '${p_grade}', '${p_pos}', '${p_birth}', '${p_height}', '${p_weight}', '${p_type}', '${p_photo}')">
                     수정
                 </button>
                 <button class="btn-list delete" onclick="deletePlayer('${p_number}','${p_name}', '${p_pos}')">삭제</button>
@@ -319,7 +316,7 @@ async function deletePlayer(number,name, positionCode) {
 }
 
 // [수정 모드 시작] 목록에서 수정 버튼 클릭 시 실행
-window.startEditMode = function(name, number, grade, position, birth, height, weight, type, school, photoUrl) {
+window.startEditMode = function(name, number, grade, position, birth, height, weight, type, photoUrl) {
     // 1. 입력창에 값 채워넣기
     document.getElementById('name').value = name;
     document.getElementById('number').value = number;
@@ -329,7 +326,6 @@ window.startEditMode = function(name, number, grade, position, birth, height, we
     document.getElementById('height').value = height;
     document.getElementById('weight').value = weight;
     document.getElementById('type').value = type;
-    document.getElementById('school').value = school;
 
     // 2. 사진 URL 저장 (사진을 안 바꾸면 이걸 그대로 씀)
     currentOriginalPhoto = photoUrl;
@@ -364,7 +360,6 @@ async function update_member() {
     const height = document.getElementById('height').value.trim();
     const weight = document.getElementById('weight').value.trim();
     const type = document.getElementById('type').value;
-    const school = document.getElementById('school').value.trim();
     const fileInput = document.getElementById('photo');
 
     // 2. 필수값 검사
@@ -412,7 +407,6 @@ async function update_member() {
             height: height ? Number(height) : "",
             weight: weight ? Number(weight) : "",
             type: type || "미지정",
-            school: school || "",
             photo: finalPhotoUrl, 
             updatedAt: new Date()
         };
