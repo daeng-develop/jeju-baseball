@@ -236,7 +236,7 @@ select.input-field:focus {
 
 /* 마우스 올렸을 때 효과 (Hover) */
 .admin-list-table tbody tr:hover {
-    background-color: var(--main-clr-light); /* 아주 연한 파란색 하이라이트 */
+    background-color: var(--point-clr-light); /* 아주 연한 보라색 하이라이트 */
 }
 
 /* 테이블 셀 (td) */
@@ -271,13 +271,13 @@ select.input-field:focus {
 
 /* 수정 버튼 (파란색 계열) */
 .btn-list.edit {
-    background-color: var(--main-clr-bright);
+    background-color: var(--main-clr-light);
     color: var(--main-clr);
 }
 
 .btn-list.edit:hover {
-    background-color: var(--main-clr);
-    color: var(--main-clr-bright);
+    background-color: var(--point-clr);
+    color: var(--point-clr-light);
 }
 
 /* 삭제 버튼 (빨간색 계열) */
