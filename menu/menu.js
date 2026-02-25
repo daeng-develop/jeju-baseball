@@ -50,7 +50,7 @@ async function draw_menu_tree() {
         <button class="sidebar-btn" id="sidebar-open">☰</button>
 
         <a href="${pathPrefix}index.html" class="home-btn-link" style="text-decoration: none;">
-            <div class="home-btn">제주고학교</div>
+            <div class="home-btn">제주고등학교</div>
         </a>
 
         <ul class="top-menu-tree">
@@ -248,7 +248,7 @@ async function fillEventMenu(pathPrefix, year, elementId) {
 
         // 2. 필터링된 결과가 없으면 '일정 없음' 표시
         if (validEvents.length === 0) {
-            listElement.innerHTML = `<li><span style="padding: 10px 15px; color: var(--text-gray); font-size: 0.9em;">일정 없음</span></li>`;
+            listElement.innerHTML = `<li><span style="padding: 10px 15px; color: var(--border-light); font-size: 0.9em;">일정 없음</span></li>`;
             return;
         }
 
@@ -355,7 +355,7 @@ async function fillMatchMenu(pathPrefix, elementId, isSidebar) {
 
             let subItemsHtml = "";
             if (matches.length === 0) {
-                subItemsHtml = `<li><span style="padding:10px; color: var(--text-light-gray);">기록 없음</span></li>`;
+                subItemsHtml = `<li><span style="padding:10px; color: var(--border-light);">기록 없음</span></li>`;
             } else {
                 matches.forEach(m => {
                     const dateShort = m.date ? m.date.slice(5).replace('-', '.') : '00.00'; 
