@@ -236,7 +236,7 @@ select.input-field:focus {
 
 /* 마우스 올렸을 때 효과 (Hover) */
 .admin-list-table tbody tr:hover {
-    background-color: var(--main-clr-bright); /* 아주 연한 파란색 하이라이트 */
+    background-color: var(--main-clr-light); /* 아주 연한 파란색 하이라이트 */
 }
 
 /* 테이블 셀 (td) */
