@@ -125,7 +125,7 @@
     background-color: transparent;
 
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     white-space: nowrap;
 
     /* 상단 고정 */
@@ -164,7 +164,7 @@ a.top-menu-category-level1 {
     padding-left: 0; 
     
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     
     white-space: normal !important;
     max-width: 155px; 
@@ -231,7 +231,7 @@ a.top-menu-category-level1 {
 
     color: var(--text-white);
 
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 
     padding: 4px 8px;
     margin: 1px 0;
@@ -303,7 +303,7 @@ a.top-menu-category-level1 {
     background-color:  var(--main-clr);
     opacity: 0.95;
 
-    width: 280px;              
+    width: 300px;              
     box-shadow: 4px 0 15px rgba(0,0,0,0.3); 
     display: flex;
     flex-direction: column;
@@ -327,8 +327,8 @@ a.top-menu-category-level1 {
 
 .sidebar-title {
     color: var(--text-white);
-    font-size: 1.2rem;
-    font-weight: 800;
+    font-size: 2.0rem;
+    font-weight: 700;
     margin: 0;
     letter-spacing: 1px;
 }
@@ -422,14 +422,13 @@ a.sidebar-category-level1 {
 /* 호버 효과 */
 .sidebar-category-level2 a:hover {
     background-color: color-mix(in srgb, var(--point-clr), transparent 20%);
-    border-left: 4px solid var(--bg-light-gray);
 }
 
 
 /* --- Case B: Level 2가 하위 그룹일 때 (경기 기록) --- */
 .sidebar-category-level2-group {
     display: block;
-    padding: 12px 25px 12px 45px; /* 왼쪽 패딩을 45px로 늘려 들여쓰기 */
+    padding: 12px 25px 12px 30px; /* 왼쪽 패딩을 45px로 늘려 들여쓰기 */
     
     color: var(--text-white);
     text-decoration: none;
@@ -456,12 +455,13 @@ a.sidebar-category-level1 {
 /* 2. 내부 링크 스타일 */
 .sidebar-category-level3 li a {
     display: block;
+    
     /* Level 2(45px)보다 더 깊게 들여쓰기 (65px) */
-    padding: 12px 25px 12px 65px; 
+    padding: 12px 25px 12px 45px; 
     
     color: var(--text-white);
     text-decoration: none; /* 밑줄 제거 */
-    font-size: 0.9rem; /* 글자 크기 살짝 작게 */
+    font-size: 1.0rem; /* 글자 크기 살짝 작게 */
     transition: all 0.2s ease;
     border-left: 4px solid transparent; /* 호버 효과를 위한 투명 테두리 */
 }
@@ -469,7 +469,24 @@ a.sidebar-category-level1 {
 /* 3. 마우스 올렸을 때 효과 */
 .sidebar-category-level3 li a:hover {
     background-color: var(--point-clr);
-    border-left: 4px solid var(--bg-light-gray);
+}
+
+.sidebar-category-level3 a::before,
+.sidebar-category-level3 span::before {
+    content: "";            /* 빈 콘텐츠 생성 */
+    display: inline-block;  /* 박스 형태로 만듦 */
+    
+    width: 2px;             /* 선 두께 (얇게) */
+    height: 10px;           /* 선 높이 */
+    background-color:var(--bg-white);
+    
+    margin-right: 8px;      /* 글자와의 간격 */
+    vertical-align: middle; /* 글자 중간 높이에 맞춤 */
+    
+    /* 위치 미세 조정 */
+    position: relative;
+    top: -1px;
+    border-radius: 1px;     /* 끝을 둥글게 (선택사항) */
 }
 
 
